@@ -1,0 +1,7 @@
+{ "name" : "proto-list"
+, "version" : "1.0.0"
+, "description" : "A utility for managing a prototype chain"
+, "main" : "./proto-list.js"
+, "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
+, "scripts" : { "test" : "node proto-list.js" }
+, "devDependencies" : { "tap" : "0" } }
