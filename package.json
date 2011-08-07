@@ -4,4 +4,5 @@
 , "main" : "./proto-list.js"
 , "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
 , "scripts" : { "test" : "node proto-list.js" }
+, "repository": { "type": "git", "url: "https://github.com/isaacs/proto-list" }
 , "devDependencies" : { "tap" : "0" } }
