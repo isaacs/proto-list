@@ -19,22 +19,22 @@ ProtoList.prototype =
       if (this.list.length >= 1) {
         this.list[this.list.length - 1].__proto__ = obj
       }
-      obj.__proto__ = Object.prototype
+      obj.__proto__ = null
       return this.list.push(obj)
     }
   , pop : function () {
       if (this.list.length >= 2) {
-        this.list[this.list.length - 2].__proto__ = Object.prototype
+        this.list[this.list.length - 2].__proto__ = null
       }
       return this.list.pop()
     }
   , unshift : function (obj) {
-      obj.__proto__ = this.list[0] || Object.prototype
+      obj.__proto__ = this.list[0] || null
       return this.list.unshift(obj)
     }
   , shift : function () {
       if (this.list.length >= 1) {
-        this.list[0].__proto__ = Object.prototype
+        this.list[0].__proto__ = null
       }
       return this.list.shift()
     }
