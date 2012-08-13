@@ -42,5 +42,12 @@ tap.test("protoList tests", function (t) {
   // should not inherit default object properties
   t.equal(p.get('hasOwnProperty'), undefined)
 
+  // unless we give it those.
+  p.root = {}
+  t.equal(p.get('hasOwnProperty'), {}.hasOwnProperty)
+
+  p.root = {default:'monkey'}
+  t.equal(p.get('default'), 'monkey')
+
   t.end()
 })

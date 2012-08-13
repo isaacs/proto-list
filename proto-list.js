@@ -1,7 +1,22 @@
 
 module.exports = ProtoList
 
-function ProtoList () { this.list = [] }
+function ProtoList () {
+  this.list = []
+  var root = null
+  Object.defineProperty(this, 'root', {
+    get: function () { return root },
+    set: function (r) {
+      root = r
+      if (this.list.length) {
+        this.list[this.list.length - 1].__proto__ = r
+      }
+    },
+    enumerable: true,
+    configurable: true
+  })
+}
+
 ProtoList.prototype =
   { get length () { return this.list.length }
   , get keys () {
@@ -19,22 +34,22 @@ ProtoList.prototype =
       if (this.list.length >= 1) {
         this.list[this.list.length - 1].__proto__ = obj
       }
-      obj.__proto__ = null
+      obj.__proto__ = this.root
       return this.list.push(obj)
     }
   , pop : function () {
       if (this.list.length >= 2) {
-        this.list[this.list.length - 2].__proto__ = null
+        this.list[this.list.length - 2].__proto__ = this.root
       }
       return this.list.pop()
     }
   , unshift : function (obj) {
-      obj.__proto__ = this.list[0] || null
+      obj.__proto__ = this.list[0] || this.root
       return this.list.unshift(obj)
     }
   , shift : function () {
       if (this.list.length >= 1) {
-        this.list[0].__proto__ = null
+        this.list[0].__proto__ = this.root
       }
       return this.list.shift()
     }
@@ -56,7 +71,7 @@ ProtoList.prototype =
       // handle injections
       var ret = this.list.splice.apply(this.list, arguments)
       for (var i = 0, l = this.list.length; i < l; i++) {
-        this.list[i].__proto__ = this.list[i + 1] || null
+        this.list[i].__proto__ = this.list[i + 1] || this.root
       }
       return ret
     }
