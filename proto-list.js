@@ -53,6 +53,11 @@ ProtoList.prototype =
       return this.list.slice.apply(this.list, arguments)
     }
   , splice : function () {
-      return this.list.splice.apply(this.list, arguments)
+      // handle injections
+      var ret = this.list.splice.apply(this.list, arguments)
+      for (var i = 0, l = this.list.length; i < l; i++) {
+        this.list[i].__proto__ = this.list[i + 1] || null
+      }
+      return ret
     }
   }
