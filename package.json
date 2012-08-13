@@ -3,7 +3,7 @@
 , "description" : "A utility for managing a prototype chain"
 , "main" : "./proto-list.js"
 , "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
-, "scripts" : { "test" : "node proto-list.js" }
+, "scripts" : { "test" : "tap test/*.js" }
 , "repository": { "type": "git", "url": "https://github.com/isaacs/proto-list" }
 , "license": { "type": "MIT", "url": "https://github.com/isaacs/proto-list/blob/master/LICENSE" }
 , "devDependencies" : { "tap" : "0" } }
