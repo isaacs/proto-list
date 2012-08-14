@@ -29,6 +29,9 @@ ProtoList.prototype =
       this.keys.forEach(function (k) { o[k] = this.get(k) }, this)
       return o
     }
+  , get store () {
+      return this.list[0]
+    }
   , push : function (obj) {
       if (typeof obj !== "object") obj = {valueOf:obj}
       if (this.list.length >= 1) {
