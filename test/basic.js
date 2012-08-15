@@ -49,5 +49,13 @@ tap.test("protoList tests", function (t) {
   p.root = {default:'monkey'}
   t.equal(p.get('default'), 'monkey')
 
+  p.push({red:'blue'})
+  p.push({red:'blue'})
+  p.push({red:'blue'})
+  while (p.length) {
+    t.equal(p.get('default'), 'monkey')
+    p.shift()
+  }
+
   t.end()
 })

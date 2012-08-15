@@ -51,7 +51,7 @@ ProtoList.prototype =
       return this.list.unshift(obj)
     }
   , shift : function () {
-      if (this.list.length >= 1) {
+      if (this.list.length === 1) {
         this.list[0].__proto__ = this.root
       }
       return this.list.shift()
