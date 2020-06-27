@@ -12,6 +12,9 @@
     "url": "https://github.com/isaacs/proto-list"
   },
   "license": "ISC",
+  "dependencies": {
+    "has": "^1.0.3"
+  },
   "devDependencies": {
     "tap": "^1.2.0"
   }
