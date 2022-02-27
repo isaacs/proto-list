@@ -13,6 +13,12 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "tap": "^1.2.0"
+    "tap": "^15.1.6"
+  },
+  "tap": {
+    "lines": 60,
+    "statements": 60,
+    "branches": 60,
+    "functions": 60
   }
 }
