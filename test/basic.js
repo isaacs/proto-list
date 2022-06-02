@@ -57,5 +57,13 @@ tap.test("protoList tests", function (t) {
     p.shift()
   }
 
+  p = new ProtoList
+  p.root = null
+  p.push({})
+  t.equal(p.get('hasOwnProperty'), undefined, 'new ProtoList.list[0] does not inherit from Object.prototype')
+  t.doesNotThrow(function () {
+    p.set('foo', 'bar', true)
+  }, 'p.set does not throw when `save` is `true` and `p.list[0]` does not inherit from Object.prototype')
+
   t.end()
 })
