@@ -1,3 +1,4 @@
+var hasOwn = require("has")
 
 module.exports = ProtoList
 
@@ -68,7 +69,7 @@ ProtoList.prototype =
     }
   , set : function (key, val, save) {
       if (!this.length) this.push({})
-      if (save && this.list[0].hasOwnProperty(key)) this.push({})
+      if (save && hasOwn(this.list[0], key)) this.unshift({})
       return this.list[0][key] = val
     }
   , forEach : function (fn, thisp) {
